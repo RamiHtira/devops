@@ -8,7 +8,7 @@ pipeline {
         stage('Checkout GIT ') {
             steps {
                 echo 'Pulliing ...';
-                git branch: 'ranim', url: 'https://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@github.com/Akarmous/CI-CD-GladOps.git'            }
+                git branch: 'rami', url: 'https://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@github.com/RamiHtira/devops.git'            }
 
         }
 
