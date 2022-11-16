@@ -1,0 +1,89 @@
+pipeline {
+environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	}
+    agent any
+    
+    stages{
+        
+        stage(' GIT'){
+         steps {
+            echo 'Pulling...';
+            git branch: 'Categry_Product_Test',credentialsId: 'gittoken', url: 'https://github.com/RamiHtira/devops.git'
+               }
+        }
+   /*	
+        stage('Clean'){
+            steps {
+    
+            sh "mvn clean"
+               }
+            
+        }
+        
+        stage('Compile'){
+            steps {
+    
+            sh "mvn compile"
+               }
+            
+        }
+        stage('Test'){
+            steps {
+    
+            sh "mvn test"
+               }
+            
+        }
+        stage('Sonar'){
+            steps {
+            withSonarQubeEnv( installationName: 'sonar'){
+            sh 'mvn sonar:sonar -Dsonar.login=802f1a3711d5244481775b3daab60917d686bb53'
+               
+            }
+            
+        }
+    }    
+    
+ 
+        stage ("Nexuspackage"){
+			steps{
+			sh "mvn package"
+			
+
+                       
+            }
+	   
+        }
+	
+	stage ("Nexusdeploy"){
+	steps{
+	sh "mvn deploy"
+
+	}
+	}
+		    stage('Build image') {
+            steps{
+            script{
+            dockerImage = docker.build("amineouerghi/devops:latest")
+            }
+            }
+        }
+        stage('Dockerhub Login') {
+
+			steps {
+				sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+			}
+		}
+        
+        
+        stage('Push') {
+
+			steps {
+				sh 'docker push amineouerghi/devops:latest'
+			}
+	}
+
+*/
+    }
+}
