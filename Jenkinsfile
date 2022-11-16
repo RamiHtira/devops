@@ -24,7 +24,7 @@ pipeline {
               
             }
         }
-    
+    /*
       stage("Sonar") {
         steps {
 
@@ -36,7 +36,7 @@ pipeline {
   
   
                }
-     }
+     } */
 	
      stage("JUNIT/MOCKITO"){
 	steps{
@@ -65,7 +65,7 @@ pipeline {
         }
      }
      
-     /*-----------------*/
+     /*-----------------
     stage("Build docker image") {
         steps{
 	   sh 'chown 666 /var/run/docker.sock'	
@@ -75,8 +75,8 @@ pipeline {
      
           stage("Publish  image to docker hub") {
         steps{
-         	sh 'docker login -ukairedineben -p Baha2012.'
-            	sh  'docker push kairedineben/tp_achat_project-1.0:latest'
+         	sh 'docker login -ubahatoumi -p Baha2012'
+            	sh  'docker push toumibaha/tp_achat_project-1.0:latest'
               }
 		  
         }
@@ -87,7 +87,7 @@ pipeline {
                       sh 'docker-compose up -d --build'
                    }
               }
-              
+              */
      /*-----------*/
 
 
