@@ -69,13 +69,13 @@ pipeline {
     stage("Build docker image") {
         steps{
 	  
-           sh 'docker build -t $DOCKERHUB_CREDENTIALS/achat .'
+           sh 'docker build -t kairedineben/tp_achat_project-1.0 .'
         }
         } 
      
           stage("Publish  image to docker hub") {
         steps{
-         	sh 'docker login -ukairedineben -p Baha2012.'
+         	sh 'docker login -ukairedineben -p dckr_pat_leVtk0k0LHlYhQJBctXFZVaz9qM'
             	sh  'docker push kairedineben/tp_achat_project-1.0:latest'
               }
 		  
