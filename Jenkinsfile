@@ -65,7 +65,7 @@ pipeline {
         }
      }
      
-     /*-----------------
+     /*-----------------*/
     stage("Build docker image") {
         steps{
 	   sh 'chown 666 /var/run/docker.sock'	
@@ -87,7 +87,7 @@ pipeline {
                       sh 'docker-compose up -d --build'
                    }
               }
-              */
+              
      /*-----------*/
 
 
