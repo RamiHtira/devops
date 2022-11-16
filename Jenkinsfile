@@ -3,6 +3,9 @@ pipeline {
     tools {
     	maven 'M2_HOME'
     }
+     environment {
+        DOCKERHUB_CREDENTIALS = credentials('4ba1fe15-cf5c-4117-8423-1275412b0318')
+      }
     stages {
 
         stage('Checkout GIT ') {
@@ -41,7 +44,8 @@ pipeline {
 
             stage("DockerLogin") {
                        steps {
-                       sh 'docker login -u rami2022 -p Rami19981998'
+                       sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                      // sh 'docker login -u rami2022 -p Rami19981998'
                        }
                        }
              stage('Docker Image Build ') {
