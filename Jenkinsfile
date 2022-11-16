@@ -12,76 +12,20 @@ pipeline {
 
         }
 
-	   stage('compiler') {
-             		steps {
-               		sh 'mvn compile'
-             		}
-           	}
-       	    stage('Build') {
-             		steps {
-               		sh 'mvn -B -DskipTests clean package'
-             		}
-           	}
+	    stage('compiler') {
+      		steps {
+        		sh 'mvn compile'
+      		}
+    	}
+	    stage('Build') {
+      		steps {
+        		sh 'mvn -B -DskipTests clean package'
+      		}
+    	}
 
-               stage('Testing maven') {
-       		    steps {
-       		    sh """mvn -version"""
-       	        }
-       	    }
-
-
-
-
-       	stage("TEST JUNIT"){
-       		steps{
-       		 sh'mvn test -DskipTests '
-       		}
-
-       	}
-
-
-             stage('Docker Image Build ') {
-       		    steps {
-       		      script{
-       			    sh 'docker build -t rami2022/achat .'
-       		    }
-       		}
-       		}
-       		stage('Docker Image Push ') {
-                   steps {
-                   script {
-       		    sh 'docker login -u rami2022 -p Rami1998'
-       		    sh 'docker push rami2022/achat'
-       		    }
-       		    }
-          	}
-//          	 stage("DockerBuild") {
-//                        steps {
-//                        sh '''cd crud-tuto-front
-//                         docker build -t rami2022/achatfront .'''
-//                        }
-//                        }
-
-                    stage("DockerLogin") {
-                       steps {
-                       sh 'docker login -u rami2022 -p Rami1998'
-                       }
-                       }
-
-//                      stage("DockerPush") {
-//                         steps {
-//                         sh 'docker push rami2022/achatfront'
-//                        }
-//                        }
-                       stage("Docker-Compose") {
-                        steps {
-                        sh 'docker-compose up'
-                       }
-                       }
-
-
-
-
-           }
-
-       }
+        stage('Testing maven') {
+		    steps {
+		    sh """mvn -version"""
+	        }
+	    }
+	    }}
