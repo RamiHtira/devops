@@ -57,7 +57,7 @@ pipeline {
         		stage('Build image') {
 
         			steps {
-        				sh 'docker build -t rami2022/achat:latest .'
+        				sh 'docker build -t rami2022/achat:first .'
         			}
         		}
 
@@ -72,7 +72,7 @@ pipeline {
         		stage('Push image') {
 
         			steps {
-        				sh 'docker push rami2022/achat:latest'
+        				sh 'docker push rami2022/achat:first'
         			}
         		}
 
