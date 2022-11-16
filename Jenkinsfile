@@ -55,7 +55,7 @@ pipeline {
                    steps {
                    script {
        		    sh 'docker login -u rami2022 -p Rami19981998'
-       		    sh 'docker push rami2022/achat'
+       		    sh 'docker push rami2022/achat:latest'
        		    }
        		    }
           	}
