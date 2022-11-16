@@ -24,7 +24,7 @@ pipeline {
               
             }
         }
-    /*
+    
       stage("Sonar") {
         steps {
 
@@ -36,7 +36,7 @@ pipeline {
   
   
                }
-     } */
+     } 
 	
      stage("JUNIT/MOCKITO"){
 	steps{
