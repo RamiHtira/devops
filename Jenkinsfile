@@ -41,7 +41,7 @@ pipeline {
 
             stage("DockerLogin") {
                        steps {
-                       sh 'docker login -u rami2022 -p Rami1998'
+                       sh 'docker login -u rami2022 -p Rami19981998'
                        }
                        }
              stage('Docker Image Build ') {
@@ -54,7 +54,7 @@ pipeline {
        		stage('Docker Image Push ') {
                    steps {
                    script {
-       		    sh 'docker login -u rami2022 -p Rami1998'
+       		    sh 'docker login -u rami2022 -p Rami19981998'
        		    sh 'docker push rami2022/achat'
        		    }
        		    }
