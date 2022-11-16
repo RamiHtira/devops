@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo 'Pulling code from Git'
                 git branch: 'RaefAifia', 
-                url: 'https://github.com/RaefAifia/DevOps.git'
+                url: 'https://github.com/RamiHtira/devops.git'
             }
         }
         stage('Building JAR') {
