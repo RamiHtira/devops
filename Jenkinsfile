@@ -12,7 +12,7 @@ pipeline {
             stage('Get Project from Github') {
             steps {
                    echo 'Getting Project from Git' 
-                git branch: 'kairi', url: 'https://github.com/RamiHtira/devops.git',
+                git branch: 'khairi', url: 'https://github.com/RamiHtira/devops.git',
                 credentialsId:'git_access'
                 
             }
