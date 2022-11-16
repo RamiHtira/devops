@@ -20,7 +20,7 @@ environment {
                }
             
         }
-        
+        /*
         stage('Compile'){
             steps {
     
@@ -28,7 +28,7 @@ environment {
                }
             
         }
-	  /*
+	  
         stage('Test'){
             steps {
     
