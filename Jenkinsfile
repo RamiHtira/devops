@@ -54,7 +54,7 @@ pipeline {
        		stage('Docker Image Push ') {
                    steps {
                    script {
-       		    sh 'docker push rami2022/achat:latest'
+       		    sh 'docker push rami2022/achat'
        		    }
        		    }
           	}
