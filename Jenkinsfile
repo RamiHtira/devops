@@ -13,7 +13,7 @@ pipeline {
         dockerhub = credentials('dockerhub')
     }
     stages {
-        stage('Pull code from GitLab') {
+        stage('Pull code from Github') {
             steps {
                 echo 'Pulling code from Git'
                 git branch: 'RaefAifia', 
