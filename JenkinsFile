@@ -9,7 +9,7 @@ environment {
         stage(' GIT'){
          steps {
             echo 'Pulling...';
-            git branch: 'Categry_Product_Test',credentialsId: 'gittoken', url: 'https://github.com/RamiHtira/devops.git'
+            git branch: 'fournisseurs',credentialsId: 'gittoken', url: 'https://github.com/RamiHtira/devops.git'
                }
         }
    /*	
