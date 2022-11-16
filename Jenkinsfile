@@ -47,7 +47,7 @@ pipeline {
              stage('Docker Image Build ') {
        		    steps {
        		      script{
-       			    sh 'docker build -t rami2022/achat .'
+       			    sh 'docker build -t rami2022/achat:latest .'
        		    }
        		}
        		}
