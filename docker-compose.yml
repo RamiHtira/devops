@@ -9,13 +9,13 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=1234
       - MYSQL_DATABASE=achatdb
-      - MYSQL_USER=ranim
+      - MYSQL_USER=rami
       - MYSQL_PASSWORD=1234
     volumes:
       - achatdb:/var/lib/mysql
 
   spring_app:
-    image: 181jft3341/achat:latest
+    image: rami2022/achat:latest
     container_name: achatspring
     restart: on-failure
     environment:
