@@ -12,7 +12,7 @@ environment {
             git branch: 'fournisseurs',credentialsId: 'gittoken', url: 'https://github.com/RamiHtira/devops.git'
                }
         }
-   /*	
+ 	
         stage('Clean'){
             steps {
     
@@ -28,6 +28,7 @@ environment {
                }
             
         }
+	  /*
         stage('Test'){
             steps {
     
