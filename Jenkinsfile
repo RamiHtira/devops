@@ -35,56 +35,67 @@ pipeline {
 
 
 
-       	stage("TEST JUNIT"){
-       		steps{
-       		 sh'mvn test -DskipTests '
-       		}
+//        	stage ('Maven Test Sonar') {
+//                     steps {
+//                         sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sousou.123'
+//                     }
+//
+//                 }
 
-       	}
-
-            stage("DockerLogin") {
-                       steps {
-                       sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                      // sh 'docker login -u rami2022 -p Rami19981998'
-                       }
-                       }
-             stage('Docker Image Build ') {
-       		    steps {
-       		      script{
-       			    sh 'docker build -t rami2022/achat:latest .'
-       		    }
-       		}
-       		}
-       		stage('Docker Image Push ') {
-                   steps {
-                   script {
-       		    sh 'docker push rami2022/achat'
-       		    }
-       		    }
-          	}
-//          	 stage("DockerBuild") {
-//                        steps {
-//                        sh '''cd crud-tuto-front
-//                         docker build -t rami2022/achatfront .'''
-//                        }
-//                        }
+                stage ('Maven Test JUnit') {
+                    steps {
+                        echo 'mvn test'
+                    }
+                }
+                stage ('Maven Deploy Nexus') {
+                    steps {
+                        sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
+                    }
+                }
 
 
+        		stage('Build image') {
 
-//                      stage("DockerPush") {
-//                         steps {
-//                         sh 'docker push rami2022/achatfront'
-//                        }
-//                        }
-                       stage("Docker-Compose") {
-                        steps {
-                        sh 'docker-compose up'
-                       }
-                       }
+        			steps {
+        				sh 'docker build -t rami2022/achat:latest .'
+        			}
+        		}
 
+        		stage('Login docker hub') {
 
+        			steps {
 
+        				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password $DOCKERHUB_CREDENTIALS_PSW'
+        			}
+        		}
 
-           }
+        		stage('Push image') {
 
-       }
+        			steps {
+        				sh 'docker push rami2022/achat:latest'
+        			}
+        		}
+
+        		stage('Docker-Compose Up') {
+
+        			steps {
+        				sh 'docker-compose up'
+        			}
+        		}
+
+        		stage('Docker-Compose Down') {
+
+        			steps {
+        				sh 'docker-compose down'
+        			}
+        		}
+
+        	}
+
+        /*	post {
+        		always {
+        			sh 'docker logout'
+        		}
+        	}*/
+
+        }
