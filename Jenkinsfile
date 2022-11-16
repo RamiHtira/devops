@@ -47,11 +47,11 @@ pipeline {
                         echo 'mvn test'
                     }
                 }
-                stage ('Maven Deploy Nexus') {
-                    steps {
-                        sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
-                    }
-                }
+//                 stage ('Maven Deploy Nexus') {
+//                     steps {
+//                         sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
+//                     }
+//                 }
 
 
         		stage('Build image') {
