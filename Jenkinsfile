@@ -3,9 +3,9 @@ pipeline {
    tools {
       maven 'M2_HOME'
   }
-//  environment {
+/*  environment {
 //       DOCKERHUB_CREDENTIALS = credentials('bahatoumi-dockerhub')
-	//}
+	}*/
   stages {
 	
      
