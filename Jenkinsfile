@@ -43,7 +43,7 @@ pipeline {
 	     }
 	}
 
-     stage("nexus") {
+    /*  stage("nexus") {
         steps{
            echo "deploy project on nexus"
            nexusArtifactUploader artifacts: [
@@ -62,7 +62,7 @@ pipeline {
   	   repository: 'DeployementRepo',
 	   version: '1.0'
         }
-     }
+     } */
 
      /*-----------------*/
     stage("Build docker image") {
