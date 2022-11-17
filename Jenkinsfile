@@ -72,7 +72,8 @@ pipeline {
         		stage('Push image') {
 
         			steps {
-        				sh 'docker push rami2022/achat:first'
+        			    sh 'docker tag achat:rami2022/achat'
+        				sh 'docker push rami2022/achat'
         			}
         		}
 
