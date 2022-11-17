@@ -56,7 +56,7 @@ pipeline {
              	   nexusUrl: '192.168.34.48:8081/repository/maven-releases',
                         nexusVersion: 'nexus3',
              	   protocol: 'http',
-               	   repository: 'DeployementRepo',
+               	   repository: 'deploymentRepo',
              	   version: '1.0'
                      }
                   }
