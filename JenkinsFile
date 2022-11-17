@@ -61,7 +61,7 @@ agent any
 		    stage('Build image') {
             steps{
             script{
-            dockerImage = docker.build("amineouerghi/devops:latest")
+            dockerImage = docker.build("wissem33/devops:latest")
             }
             }
         }
@@ -76,7 +76,7 @@ agent any
         stage('Push') {
 
 			steps {
-				sh 'docker push amineouerghi/devops:latest'
+				sh 'docker push wissem33/devops:latest'
 		          	}
 	         }
 
