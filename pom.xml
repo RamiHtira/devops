@@ -73,7 +73,7 @@
 	</dependencies>
          <distributionManagement>
 		<repository>
-			<id>deploymentRepo</id>
+			<id>deploymentRepo </id>
 			<name>Nexus Saging Repo</name>
 			<url>http://192.168.1.101:8081/repository/maven-releases/</url>
 		</repository>
