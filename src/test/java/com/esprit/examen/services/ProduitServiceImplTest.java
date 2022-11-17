@@ -18,14 +18,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import tn.esprit.rh.achat.entities.Produit;
-import tn.esprit.rh.achat.entities.Stock;
-import tn.esprit.rh.achat.repositories.ProduitRepository;
-import tn.esprit.rh.achat.repositories.StockRepository;
-import tn.esprit.rh.achat.services.IProduitService;
-import tn.esprit.rh.achat.services.IStockService;
-import tn.esprit.rh.achat.services.ProduitServiceImpl;
-import tn.esprit.rh.achat.services.StockServiceImpl;
+import com.esprit.examen.entities.Produit;
+import com.esprit.examen.entities.Stock;
+import com.esprit.examen.repositories.ProduitRepository;
+import com.esprit.examen.repositories.StockRepository;
+import com.esprit.examen.services.IProduitService;
+import com.esprit.examen.services.IStockService;
+import com.esprit.examen.services.ProduitServiceImpl;
+import com.esprit.examen.services.StockServiceImpl;
 
 
 @ExtendWith(MockitoExtension.class)

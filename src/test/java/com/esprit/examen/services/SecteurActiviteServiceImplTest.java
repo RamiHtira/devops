@@ -9,11 +9,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
-import tn.esprit.rh.achat.entities.Reglement;
-import tn.esprit.rh.achat.entities.SecteurActivite;
-import tn.esprit.rh.achat.repositories.ReglementRepository;
-import tn.esprit.rh.achat.repositories.SecteurActiviteRepository;
-import tn.esprit.rh.achat.services.SecteurActiviteServiceImpl;
+import com.esprit.examen.entities.Reglement;
+import com.esprit.examen.entities.SecteurActivite;
+import com.esprit.examen.repositories.ReglementRepository;
+import com.esprit.examen.repositories.SecteurActiviteRepository;
+import com.esprit.examen.services.SecteurActiviteServiceImpl;
 
 import java.util.ArrayList;
 import java.util.Date;

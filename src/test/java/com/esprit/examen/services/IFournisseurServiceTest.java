@@ -12,12 +12,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import tn.esprit.rh.achat.entities.CategorieFournisseur;
-import tn.esprit.rh.achat.entities.Fournisseur;
+import com.esprit.examen.entities.CategorieFournisseur;
+import com.esprit.examen.entities.Fournisseur;
 
-import tn.esprit.rh.achat.entities.SecteurActivite;
-import tn.esprit.rh.achat.repositories.FournisseurRepository;
-import tn.esprit.rh.achat.services.FournisseurServiceImpl;
+import com.esprit.examen.entities.SecteurActivite;
+import com.esprit.examen.repositories.FournisseurRepository;
+import com.esprit.examen.services.FournisseurServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;

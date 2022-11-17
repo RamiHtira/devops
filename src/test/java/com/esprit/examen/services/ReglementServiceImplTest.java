@@ -9,12 +9,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
-import tn.esprit.rh.achat.entities.CategorieFournisseur;
-import tn.esprit.rh.achat.entities.Fournisseur;
-import tn.esprit.rh.achat.entities.Reglement;
-import tn.esprit.rh.achat.repositories.FournisseurRepository;
-import tn.esprit.rh.achat.repositories.ReglementRepository;
-import tn.esprit.rh.achat.services.ReglementServiceImpl;
+import com.esprit.examen.entities.CategorieFournisseur;
+import com.esprit.examen.entities.Fournisseur;
+import com.esprit.examen.entities.Reglement;
+import com.esprit.examen.repositories.FournisseurRepository;
+import com.esprit.examen.repositories.ReglementRepository;
+import com.esprit.examen.services.ReglementServiceImpl;
 
 import java.util.ArrayList;
 import java.util.Date;
