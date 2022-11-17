@@ -4,7 +4,7 @@ pipeline {
     	maven 'M2_HOME'
     }
      environment {
-        DOCKERHUB_CREDENTIALS = credentials('dckr_pat_Fy1n8Guloriu8eUXIQ9rmeVUnbU')
+        DOCKERHUB_CREDENTIALS = credentials('paradax-dockerhub')
       }
     stages {
 
