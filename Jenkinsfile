@@ -44,13 +44,13 @@ pipeline {
                      steps{
                         echo "deploy project on nexus"
                         nexusArtifactUploader artifacts: [
-             		
-             			artifactId: 'tpAchatProject',
-             			classifier: '',
-             			file: 'target/tpAchatProject-1.0.jar',
-             			type: 'jar'
-             		]
-             	   ],
+                        		[
+                        			artifactId: 'tpAchatProject',
+                        			classifier: '',
+                        			file: 'target/tpAchatProject-1.0.jar',
+                        			type: 'jar'
+                        		]
+                        	   ],
              	   credentialsId: 'nexus3',
              	   groupId: 'com.esprit.examen',
              	   nexusUrl: '192.168.34.48:8081/repository/maven-releases',
