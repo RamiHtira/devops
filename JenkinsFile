@@ -50,14 +50,14 @@ agent any
                        
             }
 	   
-        }
+        }/*
 	
 	stage ("Nexusdeploy"){
 	steps{
 	sh "mvn deploy"
 
 	}
-	}
+	}*/
 		    stage('Build image') {
             steps{
             script{
