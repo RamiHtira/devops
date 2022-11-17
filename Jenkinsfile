@@ -31,7 +31,7 @@ pipeline {
 
                sh "mvn clean verify  sonar:sonar \
                 -Dsonar.projectKey=tpAchat \
-                -Dsonar.host.url=http://192.168.1.139:9000 \
+                -Dsonar.host.url=http://192.168.34.48:9000 \
                 -Dsonar.login=admin \
                 -Dsonar.password=paradax"
 
