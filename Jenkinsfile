@@ -44,7 +44,7 @@ pipeline {
 
                 stage ('Maven Test JUnit') {
                     steps {
-                        echo 'mvn test'
+                        echo 'mvn test -DskipTests'
                     }
                 }
 //                 stage ('Maven Deploy Nexus') {
