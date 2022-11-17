@@ -34,14 +34,14 @@ agent any
             sh "mvn test"
                }
             
-        }
+        }/*
         stage('Sonar'){
             steps {
             withSonarQubeEnv( installationName: 'sonar'){
             sh 'mvn sonar:sonar -Dsonar.login=c29e6c4d19417afa72eca2c14b6e5a2039546c44'}
                   }
                   }
-         
+         */
         stage ("Nexuspackage"){
 			steps{
 			sh "mvn package"
