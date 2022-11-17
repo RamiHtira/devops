@@ -1,103 +1,102 @@
-pipeline{
+pipeline {
     agent any
     tools {
-        jdk 'JAVA_HOME'
-        maven 'M2_HOME'
+    	maven 'M2_HOME'
     }
+     environment {
+        DOCKERHUB_CREDENTIALS = credentials('dckr_pat_Fy1n8Guloriu8eUXIQ9rmeVUnbU')
+      }
     stages {
-        stage('Getting project from Git') {
+
+        stage('Checkout GIT ') {
             steps {
-                echo 'Pulling code from Git'
-                git branch: 'borhen',
-                url: 'https://github.com/RamiHtira/devops.git'
-            }
-        }
-        stage('Building JAR') {
-            steps {
-                echo 'Building with Maven'
-                sh 'mvn clean install -DskipTests'
-            }
+                echo 'Pulliing ...';
+                git branch: 'borhen', url: 'https://github.com/RamiHtira/devops.git'            }
+
         }
 
-        stage('Cleaning the project') {
-            steps{
-                sh "mvn -B -DskipTests clean  "
-            }
-        }
+	   stage('compiler') {
+             		steps {
+               		sh 'mvn compile'
+             		}
+           	}
+       	    stage('Build') {
+             		steps {
+               		sh 'mvn -B -DskipTests clean package'
+             		}
+           	}
 
-
-        stage('Unit Tests') {
-            steps{
-                sh "mvn test "
-            }
-        }
-
-
-
-        stage('Artifact Construction') {
-            steps{
-                sh "mvn -B -DskipTests package "
-            }
-        }
+               stage('Testing maven') {
+       		    steps {
+       		    sh """mvn -version"""
+       	        }
+       	    }
 
 
 
 
-        stage("Sonar") {
-            steps {
-
-           sh "mvn clean verify  sonar:sonar \
-            -Dsonar.projectKey=tpAchat \
-            -Dsonar.host.url=http://192.168.34.48:9000 \
-            -Dsonar.login=admin \
-            -Dsonar.password=paradax"
-
-
-                   }
-         }
-
-
-
-        stage('Publish to Nexus') {
-            steps {
-                script {
-
-configFileProvider([configFile(fileId: 'maven-settings', variable: 'settings')]) {
-  sh 'mvn  -B -DskipTests deploy -s $settings'}
+         	stage ('Maven Test Sonar') {
+                    steps {
+                        sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=paradax'
+                    }
 
                 }
-            }
+
+                stage ('Maven Test JUnit') {
+                    steps {
+                        echo 'mvn test -DskipTests'
+                    }
+                }
+//                 stage ('Maven Deploy Nexus') {
+//                     steps {
+//                         sh'mvn clean deploy -Dmaven.test.skip=true -Dresume=false'
+//                     }
+//                 }
+
+
+        		stage('Build image') {
+
+        			steps {
+        				sh 'docker build -t spring-app:latest .'
+        			}
+        		}
+
+        		stage('Login docker hub') {
+
+        			steps {
+
+        				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password $DOCKERHUB_CREDENTIALS_PSW'
+        			}
+        		}
+
+//         		stage('Push image') {
+//
+//         			steps {
+//
+//         				sh 'docker push rami2022/devops_project:add'
+//         			}
+//         		}
+
+        		stage('Docker-Compose Up') {
+
+        			steps {
+        				sh 'docker-compose up'
+        			}
+        		}
+
+        		stage('Docker-Compose Down') {
+
+        			steps {
+        				sh 'docker-compose down'
+        			}
+        		}
+
+        	}
+
+        /*	post {
+        		always {
+        			sh 'docker logout'
+        		}
+        	}*/
+
         }
-          stage('Build Docker Image') {
-                      steps {
-                          script {
-                            sh 'docker build -t spring-app:latest .'
-                          }
-                      }
-                  }
-                  stage('Push Docker Image') {
-                      steps {
-                          script {
-                           withCredentials([string(credentialsId: 'jenkins', variable: 'dckr_pat_Fy1n8Guloriu8eUXIQ9rmeVUnbU')]) {
-                              sh 'docker login -u paradax -p ${dckr_pat_Fy1n8Guloriu8eUXIQ9rmeVUnbU}'
-                           }
-                           sh 'docker push spring-app:latest'
-                          }
-                      }
-                  }
-
-
-        stage('Run Spring && MySQL Containers') {
-                      steps {
-                          script {
-                            sh 'docker-compose up -d'
-                          }
-                      }
-                  }
-
-
-
-}
-
-
-}
