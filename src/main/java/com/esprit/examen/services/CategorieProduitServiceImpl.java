@@ -17,6 +17,7 @@ public class CategorieProduitServiceImpl implements ICategorieProduitService {
 	public List<CategorieProduit> retrieveAllCategorieProduits() {
 		
 		return categorieProduitRepository.findAll();
+
 	}
 
 	@Override
