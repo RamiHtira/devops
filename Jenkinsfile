@@ -8,10 +8,11 @@ pipeline {
       }
     stages {
 
-        stage('Checkout GIT ') {
+        stage('docker image ') {
             steps {
                 echo 'Pulliing ...';
-                git branch: 'borhen', url: 'https://github.com/RamiHtira/devops.git'            }
+                sh 'docker images'
+            }
 
         }
 
@@ -73,7 +74,7 @@ pipeline {
 //
 //         			steps {
 //
-//         				sh 'docker push rami2022/devops_project:add'
+//         				sh 'docker push spring-app:latest'
 //         			}
 //         		}
 
@@ -92,11 +93,5 @@ pipeline {
         		}
 
         	}
-
-        /*	post {
-        		always {
-        			sh 'docker logout'
-        		}
-        	}*/
 
         }
