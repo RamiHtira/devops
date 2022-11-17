@@ -1,4 +1,7 @@
 pipeline {
+environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	}
 agent any
     stages{
         
@@ -33,11 +36,50 @@ agent any
         stage('Sonar'){
             steps {
             withSonarQubeEnv( installationName: 'sonar'){
-            sh 'mvn sonar:sonar -Dsonar.login=c29e6c4d19417afa72eca2c14b6e5a2039546c44'
-               
+            sh 'mvn sonar:sonar -Dsonar.login=c29e6c4d19417afa72eca2c14b6e5a2039546c44'}
+                  }
+                  }
+         } 
+        stage ("Nexuspackage"){
+			steps{
+			sh "mvn package"
+			
+
+                       
             }
-            
+	   
         }
-    }     
+	
+	stage ("Nexusdeploy"){
+	steps{
+	sh "mvn deploy"
+
+	}
+	}
+		    stage('Build image') {
+            steps{
+            script{
+            dockerImage = docker.build("amineouerghi/devops:latest")
+            }
+            }
+        }
+        stage('Dockerhub Login') {
+
+			steps {
+				sh 'docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+			}
+		}
+        
+        
+        stage('Push') {
+
+			steps {
+				sh 'docker push amineouerghi/devops:latest'
+		          	}
+	         }
+
+
     }
-}
+         
+    }
+
