@@ -35,12 +35,12 @@ pipeline {
 
 
 
-//        	stage ('Maven Test Sonar') {
-//                     steps {
-//                         sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sousou.123'
-//                     }
-//
-//                 }
+         	stage ('Maven Test Sonar') {
+                    steps {
+                        sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=root'
+                    }
+
+                }
 
                 stage ('Maven Test JUnit') {
                     steps {
@@ -72,7 +72,7 @@ pipeline {
 //         		stage('Push image') {
 //
 //         			steps {
-//         			    sh 'docker tag spring_boot_image:first_img rami2022/devops_project:add'
+//
 //         				sh 'docker push rami2022/devops_project:add'
 //         			}
 //         		}
