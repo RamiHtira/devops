@@ -57,7 +57,7 @@ pipeline {
         		stage('Build image') {
 
         			steps {
-        				sh 'docker build -t spring_boot_image:first_img .'
+        				sh 'docker build -t rami2022/devops_project:add .'
         			}
         		}
 
@@ -84,12 +84,12 @@ pipeline {
         			}
         		}
 
-//         		stage('Docker-Compose Down') {
-//
-//         			steps {
-//         				sh 'docker-compose down'
-//         			}
-//         		}
+        		stage('Docker-Compose Down') {
+
+        			steps {
+        				sh 'docker-compose down'
+        			}
+        		}
 
         	}
 
