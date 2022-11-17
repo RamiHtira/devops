@@ -44,7 +44,7 @@ pipeline {
                      steps{
                         echo "deploy project on nexus"
                         nexusArtifactUploader artifacts: [
-             		[
+             		
              			artifactId: 'tpAchatProject',
              			classifier: '',
              			file: 'target/tpAchatProject-1.0.jar',
