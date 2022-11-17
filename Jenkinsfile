@@ -57,7 +57,7 @@ pipeline {
         		stage('Build image') {
 
         			steps {
-        				sh 'docker build -t rami2022/achat:first .'
+        				sh 'docker build -t spring_boot_image:first .'
         			}
         		}
 
@@ -72,8 +72,8 @@ pipeline {
         		stage('Push image') {
 
         			steps {
-        			    sh 'docker tag rami2022/achat:first rami2022/achat:test'
-        				sh 'docker push rami2022/achat'
+        			    sh 'docker tag spring_boot_image:first rami2022/devops_project:add'
+        				sh 'docker push rami2022/devops_project:add'
         			}
         		}
 
