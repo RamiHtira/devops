@@ -57,7 +57,7 @@ pipeline {
         		stage('Build image') {
 
         			steps {
-        				sh 'docker build -t rami2022/devops_project:add .'
+        				sh 'docker build -t rami2022/devops:add'
         			}
         		}
 
