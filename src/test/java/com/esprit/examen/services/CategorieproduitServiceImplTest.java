@@ -21,12 +21,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.boot.test.context.SpringBootTest;
-import tn.esprit.rh.achat.entities.CategorieProduit;
+import com.esprit.examen.entities.CategorieProduit;
 
-import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
-import tn.esprit.rh.achat.services.CategorieProduitServiceImpl;
-import tn.esprit.rh.achat.services.ICategorieProduitService;
-import tn.esprit.rh.achat.services.IOperateurService;
+import com.esprit.examen.repositories.CategorieProduitRepository;
+import com.esprit.examen.services.CategorieProduitServiceImpl;
+import com.esprit.examen.services.ICategorieProduitService;
+import com.esprit.examen.services.IOperateurService;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
