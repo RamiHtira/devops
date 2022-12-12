@@ -71,11 +71,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 	</dependencies>
-         <distributionManagement>
+        <distributionManagement>
 		<repository>
-			<id>deploymentRepo </id>
-			<name>Nexus Saging Repo</name>
-			<url>http://192.168.1.101:8081/repository/maven-releases/</url>
+			<id>deploymentRepo</id>
+			<name>admin</name>
+			<url>http://192.168.1.18:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
 	<build>
